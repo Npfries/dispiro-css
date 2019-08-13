@@ -1,0 +1,422 @@
+/*  DISPIRO CSS (SASS)
+    dispiro.com
+      
+    Copyright © 2019 Nathan Fries
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the “Software”), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+    of the Software, and to permit persons to whom the Software is furnished to do
+    so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,EXPRESS OR IMPLIED,
+    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+    PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// Fonts
+$main-font-color: #000                    // Applies to body element
+$main-font: Helvetica, Arial, sans-serif  // Applies to body element
+$global-font-size: 100%                   // Font size is normalized below in globalFontSize() function
+                                          
+// Buttons & Inputs
+$border-radius: 25px                      // Applies to inputs, textareas, & buttons
+$text-case: default                       // Option to force capitalize buttons
+$element-height: 30px                     // Applies to inputs, textareas, & buttons
+$element-width: 20px                      // Applies to inputs, textareas, & buttons
+                                          
+// Colors
+$primary-color: #3de093                   // Applies to buttons and .primary-color
+$secondary-color: #d6d5d0                 // Applies to buttons and .secondary-color
+
+
+// Functions
+@function globalFontSize()                // Normalize font size to be based on 10px = 1rem
+  @return $global-font-size * .625        
+                                          
+@function primaryColorDarkened()          // Applies to :hover selector of .primary-color buttons
+  @return darken($primary-color, 8%)      
+                                          
+@function secondaryColorDarkened()        // Applies to :hover selector of .secondary-color buttons
+  @return darken($secondary-color, 5%)   
+
+
+// Helper Classes
+.full-width
+  width: 100%
+
+.d-none
+  display: none
+
+.float-left
+  float: left
+
+.float-right
+  float: right
+
+.clearfix::after 
+  content: ""
+  clear: both
+  display: table
+
+
+                                          // Global
+html
+  font-size: globalFontSize()
+
+body
+  font-size: 1.5em
+  line-height: 1.6
+  font-weight: 400
+  font-family: $main-font
+  color: $main-font-color
+  box-sizing: border-box
+
+                                          // Headings
+h1, h2, h3, h4, h5, h6
+  margin-top: 0
+  margin-bottom: 2rem
+  font-weight: 300
+
+h1
+  font-size: 4.0rem
+  line-height: 1.2
+  letter-spacing: -.1rem
+
+h2
+  font-size: 3.5rem
+  line-height: 1.25
+  letter-spacing: -.1rem
+
+h3
+  font-size: 3.0rem
+  line-height: 1.3
+  letter-spacing: -.1rem
+
+h4
+  font-size: 2.5rem
+  line-height: 1.35
+  letter-spacing: -.08rem
+
+h5
+  font-size: 1.7rem
+  line-height: 1.4
+  letter-spacing: -.05rem
+
+h6
+  font-size: 1.4rem
+  line-height: 1.5
+  letter-spacing: 0
+
+@media (min-width: 550px)
+  h1
+    font-size: 5.0rem
+  h2
+    font-size: 4.25rem
+  h3
+    font-size: 3.5rem
+  h4
+    font-size: 3.0rem
+  h5
+    font-size: 2.5rem
+  h6
+    font-size: 1.5rem
+
+                                          // Text
+p
+  margin-top: 0
+
+a
+  color: #1EAEDB
+  &:hover
+    color: #0FA0CE
+
+                                          // Buttons
+button
+  display: inline-block
+  height: $element-height
+  padding: 0 $element-width
+  color: $primary-color
+  text-align: center
+  font-size: 11px
+  font-weight: 600
+  line-height: $element-height - 1px
+  letter-spacing: .1rem
+  text-transform: $text-case
+  text-decoration: none
+  white-space: nowrap
+  background-color: transparent
+  border-radius: $border-radius
+  border: 2px solid $primary-color
+  cursor: pointer
+  box-sizing: border-box
+
+  &:hover
+    color: primaryColorDarkened()
+    border-color: primaryColorDarkened()
+    outline: 0
+
+  &:focus
+    color: #333
+    border-color: #888
+    outline: 0
+
+  &.primary-color
+    color: #FFF
+    background-color: $primary-color
+    border-color: $primary-color
+
+  &.primary-color:hover
+    color: #FFF
+    background-color: primaryColorDarkened()
+    border-color: primaryColorDarkened()
+
+  &.primary-color:focus
+    color: #FFF
+    background-color: primaryColorDarkened()
+    border-color: primaryColorDarkened()
+
+  &.secondary-color
+    color: #FFF
+    background-color: $secondary-color
+    border-color: $secondary-color
+
+  &.secondary-color:hover
+    color: #FFF
+    background-color: secondaryColorDarkened()
+    border-color: secondaryColorDarkened()
+
+
+  &.secondary-color:focus
+    color: #FFF
+    background-color: secondaryColorDarkened()
+    border-color: secondaryColorDarkened()
+
+                                          // Inputs
+input
+  &[type="submit"], 
+  &[type="reset"], 
+  &[type="button"]
+    display: inline-block
+    height: $element-height
+    padding: 0 $element-width
+    color: #555
+    text-align: center
+    font-size: 11px
+    font-weight: 600
+    line-height: $element-height
+    letter-spacing: .1rem
+    text-transform: $text-case
+    text-decoration: none
+    white-space: nowrap
+    background-color: transparent
+    border-radius: $border-radius
+    border: 1px solid #bbb
+    cursor: pointer
+    box-sizing: border-box
+
+  &[type="submit"]:hover,
+  &[type="reset"]:hover,
+  &[type="button"]:hover
+    color: #333
+    border-color: #888
+    outline: 0
+
+  &[type="submit"]:focus,
+  &[type="reset"]:focus,
+  &[type="button"]:focus
+    color: #333
+    border-color: #888
+    outline: 0
+
+  &[type="submit"].primary-color,
+  &[type="reset"].primary-color,
+  &[type="button"].primary-color
+    color: #FFF
+    background-color: $primary-color
+    border-color: $primary-color
+
+  &[type="submit"].primary-color:hover,
+  &[type="reset"].primary-color:hover,
+  &[type="button"].primary-color:hover
+    color: #FFF
+    background-color: primaryColorDarkened()
+    border-color: primaryColorDarkened()
+
+  &[type="submit"].secondary-color,
+  &[type="reset"].secondary-color,
+  &[type="button"].secondary-color
+    color: #FFF
+    background-color: $secondary-color
+    border-color: $secondary-color
+
+  &[type="submit"].secondary-color:hover,
+  &[type="reset"].secondary-color:hover,
+  &[type="button"].secondary-color:hover
+    color: #FFF
+    background-color: secondaryColorDarkened()
+    border-color: secondaryColorDarkened()
+
+  &[type="submit"].primary-color:focus,
+  &[type="reset"].primary-color:focus,
+  &[type="button"].primary-color:focus
+    color: #FFF
+    background-color: primaryColorDarkened()
+    border-color: primaryColorDarkened()
+
+  &[type="submit"].secondary-color:focus,
+  &[type="reset"].secondary-color:focus,
+  &[type="button"].secondary-color:focus
+    color: #FFF
+    background-color: secondaryColorDarkened()
+    border-color: secondaryColorDarkened()
+
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"],
+  &[type="date"]
+    height: $element-height
+    padding: ($element-height / 5) $element-width
+    background-color: #fff
+    border: 1px solid #D1D1D1
+    border-radius: $border-radius
+    box-shadow: none
+    box-sizing: border-box
+
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"],
+  &[type="date"]
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+  &[type="email"]:focus,
+  &[type="number"]:focus,
+  &[type="search"]:focus,
+  &[type="text"]:focus,
+  &[type="tel"]:focus,
+  &[type="url"]:focus,
+  &[type="password"]:focus,
+  &[tyle="date"]:focus
+    border: 1px solid #33C3F0
+    outline: 0
+
+  &[type="checkbox"],
+  &[type="radio"]
+    display: inline
+
+textarea, select
+  height: $element-height
+  padding: ($element-height / 5) $element-width
+  background-color: #fff
+  border: 1px solid #D1D1D1
+  border-radius: $border-radius
+  box-shadow: none
+  box-sizing: border-box
+
+textarea
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  min-height: 65px
+  padding-top: 6px
+  padding-bottom: 6px
+
+textarea:focus, select:focus
+  border: 1px solid #33C3F0
+  outline: 0
+
+label, legend
+  display: block
+  margin-bottom: .5rem
+  font-weight: 600
+
+fieldset
+  padding: 0
+  border-width: 0
+
+label > .label-body
+  display: inline-block
+  margin-left: .5rem
+  font-weight: normal
+
+                                          // Lists
+ul
+  list-style: circle inside
+
+ol
+  list-style: decimal inside
+  padding-left: 0
+  margin-top: 0
+
+ul
+  padding-left: 0
+  margin-top: 0
+  ul, ol
+    margin: 1.5rem 0 1.5rem 3rem
+    font-size: 90%
+
+ol
+  ol, ul
+    margin: 1.5rem 0 1.5rem 3rem
+    font-size: 90%
+
+li
+  margin-bottom: 1rem
+
+                                          // Tables
+th, td
+  padding: 12px 15px
+  text-align: left
+  border-bottom: 1px solid #E1E1E1
+
+th:first-child, td:first-child
+  padding-left: 0
+
+th:last-child, td:last-child
+  padding-right: 0
+
+                                          // Misc
+code
+  padding: .2rem .5rem
+  margin: 0 .2rem
+  font-size: 90%
+  white-space: nowrap
+  background: #F1F1F1
+  border: 1px solid #E1E1E1
+  border-radius: $border-radius
+
+pre > code
+  display: block
+  padding: 1rem 1.5rem
+  white-space: pre
+
+button
+  margin-bottom: 1rem
+
+input, textarea, select, fieldset
+  margin-bottom: 1.5rem
+
+pre, blockquote, dl, figure, table, p, ul, ol, form
+  margin-bottom: 2.5rem
+
+hr
+  margin-top: 3rem
+  margin-bottom: 3.5rem
+  border-width: 0
+  border-top: 1px solid #E1E1E1
