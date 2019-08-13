@@ -55,7 +55,7 @@ Semantic Selectors
 
 Where possible, Dispiro CSS uses tag selectors for styling to avoid excessive `class` selectors.
 
-Utilities
+Helper Classes
 ---------
 
 Dispiro CSS provides several common helper classes. More may be added if practical suggestions are made.
@@ -78,5 +78,11 @@ Dispiro CSS provides several common helper classes. More may be added if practic
   content: ""
   clear: both
   display: table
+
+.text-center 
+  text-align: center
+
+.text-right
+  text-align: right
 ```
 
