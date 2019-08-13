@@ -13,10 +13,15 @@ Or you can use NPM
 npm install -g sass
 ```
 
-If needed, it can be converted to SCSS to suit developer needs using the `sass-convert` command once you have installed the Sass CLI
+If needed, it can be converted to SCSS to suit developer needs using the `sass-convert` command once you have installed the Sass CLI.
 ```
 sass-convert dispiro.sass dispiro.scss
 ```
+
+Normalize CSS
+-------------
+
+Dispiro CSS is intended for use with [Normalize CSS.](https://necolas.github.io/normalize.css/)
 
 CSS Grid
 --------
