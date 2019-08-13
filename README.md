@@ -44,3 +44,34 @@ $element-width: 20px                      // Applies to inputs, textareas, & but
 $primary-color: #3de093                   // Applies to buttons and .primary-color
 $secondary-color: #d6d5d0                 // Applies to buttons and .secondary-color
 ```
+
+Semantic Selectors
+------------------
+
+Where possible, Dispiro CSS uses tag selectors for styling to avoid excessive `class` selectors.
+
+Utilities
+---------
+
+Dispiro CSS provides several common helper classes. More may be added if practical suggestions are made.
+
+```scss
+// Helper Classes
+.full-width
+  width: 100%
+
+.d-none
+  display: none
+
+.float-left
+  float: left
+
+.float-right
+  float: right
+
+.clearfix::after 
+  content: ""
+  clear: both
+  display: table
+```
+
